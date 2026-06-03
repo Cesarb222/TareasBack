@@ -81,7 +81,11 @@ public class SecurityConfig {
     @Bean
 public CorsConfigurationSource corsConfigurationSource() {
     CorsConfiguration config = new CorsConfiguration();
-    config.setAllowedOrigins(List.of("http://localhost:4200"));
+    config.setAllowedOrigins(List.of(
+            "http://localhost:4200",
+            "https://tareas-front-angular.vercel.app",
+            "https://*.vercel.app"  // permite todos los subdominios de vercel
+        ));
     config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
     config.setAllowedHeaders(List.of("*"));
     config.setAllowCredentials(true);
